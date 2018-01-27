@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class MeteoriteScript : MonoBehaviour {
 
-    public float rotateSpeed;
-    public GameObject candidate;
+    //隕石不會分裂版本
+
+    public float rotateSpeed; //旋轉速度
+    public GameObject candidate; //會分裂版本的候選人
 
     // Use this for initialization
     void Start () {
@@ -17,14 +19,14 @@ public class MeteoriteScript : MonoBehaviour {
 
         this.transform.eulerAngles += new Vector3(0, 0, 1) * rotateSpeed * Time.deltaTime;
 
-        if(Input.GetKey(KeyCode.G))
+        if(Input.GetKey(KeyCode.G)) //測試爆炸後
         {
             MeteoriteExplode();
         }
 
     }
 
-    public void MeteoriteExplode()
+    public void MeteoriteExplode() //隕石爆炸分裂
     {
         Instantiate(candidate, this.transform.position, this.transform.rotation);
         Destroy(this.gameObject);

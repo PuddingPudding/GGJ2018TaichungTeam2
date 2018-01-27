@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class MeteoriteScript2 : MonoBehaviour {
 
-    public bool rotate;
-    public float rotateSpeed;
-    public float meteoriteSpeed;
-    Vector3 flyDirection;
+    //隕石分裂版本
+
+    public float rotateSpeed; //旋轉速度
+    public float meteoriteSpeed; //隕石飛出去速度
+    Vector3 flyDirection; //隕石塊飛出去方向
     public Transform childTransform;
 
     // Use this for initialization
@@ -21,10 +22,12 @@ public class MeteoriteScript2 : MonoBehaviour {
     {
         this.transform.position += flyDirection * meteoriteSpeed * Time.deltaTime;
 
-        if (rotate)
-        {
-            childTransform.eulerAngles += new Vector3(0, 0, 1) * rotateSpeed * Time.deltaTime;
-        }
+        childTransform.eulerAngles += new Vector3(0, 0, 1) * rotateSpeed * Time.deltaTime;
+    }
+
+    private void DestroyMeteorite()
+    {
+        Destroy(this.gameObject);
     }
 
 }
