@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
     public float energyLostSpeed = 20;
     public float energyChargeSpeed = 10;
     private bool charging = false;
+    public Image energyBar;
 
     // Use this for initialization
     void Start()
@@ -58,6 +60,6 @@ public class GameManager : MonoBehaviour
                 DOTween.To(() => sprite2P.color, x => sprite2P.color = x, originColor, transformTime);
             }
         }
-        Debug.Log("currentEnergy: " + currentEnergy);
+        energyBar.fillAmount = currentEnergy / energyMax;
     }
 }
