@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public Collider2D chargingArea1P;
     private SpriteRenderer sprite1P;
+    private p1_control p1Control;
+    private p2_control p2Control;
     public Collider2D chargingArea2P;
     private SpriteRenderer sprite2P;
     public Color chargingColor;

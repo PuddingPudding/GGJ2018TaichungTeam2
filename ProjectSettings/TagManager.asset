@@ -44,6 +44,12 @@ TagManager:
   - name: Background
     uniqueID: 208885619
     locked: 0
+  - name: Sensor
+    uniqueID: 951867883
+    locked: 0
   - name: Meteorite
     uniqueID: 591779181
+    locked: 0
+  - name: Player
+    uniqueID: 1518043939
     locked: 0
