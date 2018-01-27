@@ -15,7 +15,7 @@ public class MeteoriteScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        this.transform.eulerAngles += new Vector3(0,0,1) * rotateSpeed *  Time.deltaTime;
+        this.transform.eulerAngles += new Vector3(0, 0, 1) * rotateSpeed * Time.deltaTime;
 
         if(Input.GetKey(KeyCode.G))
         {
