@@ -22,10 +22,7 @@ public class MeteoriteScript : MonoBehaviour {
 
         this.transform.eulerAngles += new Vector3(0, 0, 1) * rotateSpeed * Time.deltaTime;
 
-        if(Input.GetKey(KeyCode.G)) //測試爆炸後
-        {
-            MeteoriteExplode();
-        }
+
     }
 
     public void MeteoriteExplode() //隕石爆炸分裂

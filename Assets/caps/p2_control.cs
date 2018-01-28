@@ -43,7 +43,6 @@ public class p2_control : MonoBehaviour {
         {
             rigidbody2D.velocity = rigidbody2D.velocity.normalized * maxSpeed; /*單位為一固定方向給他最大速度*/
         }
-        Debug.Log(rigidbody2D.velocity.magnitude);
 
 
 

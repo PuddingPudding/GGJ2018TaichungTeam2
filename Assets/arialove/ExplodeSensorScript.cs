@@ -18,6 +18,7 @@ public class ExplodeSensorScript : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("explode!");
         if(other.tag == "Border") //tag為border碰到後觸發
         {
             

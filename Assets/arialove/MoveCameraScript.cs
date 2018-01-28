@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +13,9 @@ public class MoveCameraScript : MonoBehaviour {
     public float moveDownSpeed; //向下移動速度
     public bool moveUp;
     public bool moveDown;
+    private bool gameEnd = false;
+    public Collider2D endingPoint;
+    public Collider2D border;
 
     // Use this for initialization
     void Start () {
@@ -25,7 +29,7 @@ public class MoveCameraScript : MonoBehaviour {
         {
             readyTime -= Time.deltaTime;
         }
-        else
+        else if(!gameEnd)
         {
             this.transform.position += new Vector3(1, 0, 0) * Time.deltaTime * moveSpeed;
         }
@@ -39,25 +43,12 @@ public class MoveCameraScript : MonoBehaviour {
         {
             this.transform.position += new Vector3(0, 1, 0) * Time.deltaTime * moveDownSpeed;
         }
-
-        if(Input.GetKey(KeyCode.Q))
+        
+        if(border.IsTouching(endingPoint) )
         {
-            MoveUpOn();
-        }
-
-        if(Input.GetKey(KeyCode.W))
-        {
-            MoveUpOff();
-        }
-
-        if (Input.GetKey(KeyCode.E))
-        {
-            MoveDownOn();
-        }
-
-        if (Input.GetKey(KeyCode.R))
-        {
-            MoveDownOff();
+            gameEnd = true;
+            Vector2 endingPosition = this.transform.position + new Vector3(7,0,0);
+            this.transform.DOMove(endingPosition, 3.5f);
         }
     }
 
