@@ -8,12 +8,10 @@ public class BulletScript : MonoBehaviour
     Vector3 bulletDirection;
     public float speed = 4;
     public float firstBorn = 0.5f;
-    public float spawnRate = 1.2f;
+    public float spawnRate = 5.0f;
 
     void Start()
     {
-        InvokeRepeating("bulletGenerate", firstBorn, spawnRate);
-
     }
 
 
@@ -25,7 +23,7 @@ public class BulletScript : MonoBehaviour
     {
         this.GetComponent<Rigidbody2D>().velocity = this.transform.right * speed;
         gameObject.transform.position += bulletDirection;
-        InvokeRepeating("Suicide", 3.0f, 3.0f);
+        InvokeRepeating("Suicide", 10.0f, 7.0f);
     }
 
     public void Suicide()

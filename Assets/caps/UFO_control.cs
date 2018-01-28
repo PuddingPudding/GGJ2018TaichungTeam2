@@ -28,6 +28,7 @@ public class UFO_control : MonoBehaviour
 
     void bulletGenerate()
     {
+        this.GetComponent<AudioSource>().Play();
         for (int i = 0; i < 5; i++)
         {
             bulletCandidate.transform.rotation = bulletDirection[i].transform.rotation;
