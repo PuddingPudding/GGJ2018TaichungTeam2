@@ -6,15 +6,15 @@ using DG.Tweening;
 public class UFO_control : MonoBehaviour
 {
 
-    public float spawnRate = 0.5f;
+    public float spawnRate = 5.5f;
     public float lastSpawnTime = 0.0f;
     public GameObject bulletCandidate;
+    public GameObject[] bulletDirection;
     public float currentTime = 0.0f;
-    private float bulletOffset = 1.2f;
 
     void Start()
     {
-
+        InvokeRepeating("bulletGenerate", 0.5f, 1.5f);
     }
 
 
@@ -23,15 +23,17 @@ public class UFO_control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentTime = Time.time;
+        
+    }
 
-        if((currentTime - lastSpawnTime) > spawnRate)
+    void bulletGenerate()
+    {
+        for (int i = 0; i < 5; i++)
         {
-            Vector3 pos = gameObject.transform.position + new Vector3(-2.0f, 0, 0);
-            Instantiate(bulletCandidate, pos, gameObject.transform.rotation);
+            bulletCandidate.transform.rotation = bulletDirection[i].transform.rotation;
+            Instantiate(bulletCandidate, bulletDirection[i].transform.position, bulletCandidate.transform.rotation);
             lastSpawnTime = currentTime;
         }
-            
     }
 
    
