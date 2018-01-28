@@ -26,7 +26,6 @@ public class MeteoriteScript : MonoBehaviour {
         {
             MeteoriteExplode();
         }
-
     }
 
     public void MeteoriteExplode() //隕石爆炸分裂
