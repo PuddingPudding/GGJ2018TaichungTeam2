@@ -7,10 +7,13 @@ public class BulletScript : MonoBehaviour
 
     Vector3 bulletDirection;
     public float speed = 4;
+    public float firstBorn = 0.5f;
+    public float spawnRate = 1.2f;
 
     void Start()
     {
-        
+        InvokeRepeating("bulletGenerate", firstBorn, spawnRate);
+
     }
 
 
