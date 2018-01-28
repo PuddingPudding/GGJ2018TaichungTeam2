@@ -13,7 +13,6 @@ public class p1_control : MonoBehaviour
     void Start()
     {
         rigidbody2D = this.GetComponent<Rigidbody2D>();
-        gameObject.transform.position += new Vector3(0, -0.01f, 0);
     }
 
     // Update is called once per frame

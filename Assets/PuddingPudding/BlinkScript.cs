@@ -9,6 +9,7 @@ public class BlinkScript : MonoBehaviour
     public Color transformColor;
     public float blinkTime = 0.8f;
     private bool isBlinking = false;
+    public AudioSource chargingSound;
 
     // Use this for initialization
     void Start()
@@ -27,6 +28,10 @@ public class BlinkScript : MonoBehaviour
         Collider2D collider = this.GetComponent<Collider2D>();
         if (collider.IsTouchingLayers(LayerMask.GetMask("Sensor")))
         {
+            if(!chargingSound.isPlaying)
+            {
+                chargingSound.Play();
+            }            
             if(!isBlinking)
             {
                 isBlinking = true;
@@ -35,6 +40,10 @@ public class BlinkScript : MonoBehaviour
                 Blink(thunderArray[Random.Range(1, thunderArray.Length)]);
                 Blink(thunderArray[Random.Range(1, thunderArray.Length)]);
             }
+        }
+        else if(chargingSound.isPlaying)
+        {
+            chargingSound.Stop();
         }
     }
 
